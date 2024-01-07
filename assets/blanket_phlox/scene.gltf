@@ -1,0 +1,332 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 11420,
+      "max": [
+        0.2944377064704895,
+        0.13447044789791107,
+        0.30088794231414795
+      ],
+      "min": [
+        -0.3132839500904083,
+        -0.008216416463255882,
+        -0.3127722144126892
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 137040,
+      "componentType": 5126,
+      "count": 11420,
+      "max": [
+        0.9999998211860657,
+        0.9042454361915588,
+        0.9998124837875366
+      ],
+      "min": [
+        -0.9998126029968262,
+        -0.7002825140953064,
+        -0.9997302293777466
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 11420,
+      "max": [
+        0.9999999403953552,
+        0.28752830624580383,
+        0.9999997615814209,
+        -1.0
+      ],
+      "min": [
+        -0.9999949336051941,
+        -0.9989106059074402,
+        -0.999995768070221,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 11420,
+      "max": [
+        0.9208003878593445,
+        0.9851932525634766
+      ],
+      "min": [
+        0.010208487510681152,
+        0.014806658029556274
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 91360,
+      "componentType": 5126,
+      "count": 11420,
+      "max": [
+        0.9208003878593445,
+        0.9851932525634766
+      ],
+      "min": [
+        0.010208487510681152,
+        0.014806658029556274
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 182720,
+      "componentType": 5126,
+      "count": 11420,
+      "max": [
+        0.9208003878593445,
+        0.9851932525634766
+      ],
+      "min": [
+        0.010208487510681152,
+        0.014806658029556274
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 274080,
+      "componentType": 5126,
+      "count": 11420,
+      "max": [
+        0.9208003878593445,
+        0.9851932525634766
+      ],
+      "min": [
+        0.010208487510681152,
+        0.014806658029556274
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 365440,
+      "componentType": 5126,
+      "count": 11420,
+      "max": [
+        0.9208003878593445,
+        0.9851932525634766
+      ],
+      "min": [
+        0.010208487510681152,
+        0.014806658029556274
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 29472,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "eb78 (https://sketchfab.com/E.A.Cornell)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/blanket-phlox-69bf5e21f767419dafec910f7a6be799",
+      "title": "Blanket Phlox"
+    },
+    "generator": "Sketchfab-15.38.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 117888,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 456800,
+      "byteOffset": 117888,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 274080,
+      "byteOffset": 574688,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 182720,
+      "byteOffset": 848768,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1031488,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Phlox_Mat_baseColor.png"
+    },
+    {
+      "uri": "textures/Phlox_Mat_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Phlox_Mat_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "name": "Phlox_Mat",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5,
+            "TEXCOORD_3": 6,
+            "TEXCOORD_4": 7
+          },
+          "indices": 8,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "root"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "GLTF_SceneRootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "Blanket Phlox_1"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_4"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
