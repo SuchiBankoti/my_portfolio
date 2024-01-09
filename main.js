@@ -92,7 +92,7 @@ assetLoader.load("./assets/blanket_phlox/scene.gltf", function (gltf) {
 }, undefined, function (err) { console.log(err) })
 
 
-let intensity=0
+let intensity=1
 camera.position.set(0, 0, 10)
 orbit.update()
 
