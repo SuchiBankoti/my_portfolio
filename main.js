@@ -1,150 +1,147 @@
-import * as THREE from 'three';
+import * as THREE from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
-import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
-
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
+import * as YUKA from 'yuka'
 
 
+
+const ballMaterial = {
+    clearcoat: 1.0,
+    metalness: 0.9,
+    roughness: 0.5,
+    
+}
+const time=new YUKA.Time()
 const scene = new THREE.Scene()
 const renderer = new THREE.WebGLRenderer()
-const camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000)
-const orbit = new OrbitControls(camera, renderer.domElement);
-const assetLoader = new GLTFLoader()
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000)
+const orbit=new OrbitControls(camera,renderer.domElement)
+const axesHelper = new THREE.AxesHelper(100)
+const ambientLight = new THREE.AmbientLight(0xffffff,3)
+const pointer = new THREE.Vector2()
+const directionalLight = new THREE.DirectionalLight(0xffffff, 5)
+const targetGeometry = new THREE.TorusGeometry(0.1,1,1)
+const targetMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff,transparent:true,opacity:0})
+const targetMesh = new THREE.Mesh(targetGeometry, targetMaterial)
+const entityManager = new YUKA.EntityManager()
 
 
+
+targetMesh.matrixAutoUpdate = false
+directionalLight.position.set(-10,10,10)
+
+camera.position.set(0,0,40)
 scene.add(camera)
-let butterflyModel
-let flowersModel
-let insectModal1
-let insectModal2
-let mixer
-let mixer1
-let mixer2
-let moveAmplitude = 1;
-let moveSpeed = 0.005;
-let moveSpeed2=0.001
-
-const bloomParams = {
-  exposure: 1,
-  bloomStrength: 1.5,
-  bloomThreshold: 0,
-  bloomRadius: 0.1,
-};
-const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight),
-  bloomParams.bloomStrength, bloomParams.bloomRadius, bloomParams.bloomThreshold);
-
-const bloomComposer = new EffectComposer(renderer);
-const renderPass = new RenderPass(scene, camera);
-bloomComposer.setSize(window.innerWidth, window.innerHeight)
-bloomComposer.renderToScreen=true
-bloomComposer.addPass(renderPass);
-bloomComposer.addPass(bloomPass);
-
-assetLoader.load("./assets/animated_butterfly/scene.gltf", function (gltf) {
-  butterflyModel = gltf.scene;
-  scene.add(butterflyModel)
-  butterflyModel.position.set(0, 0, -15)
-  butterflyModel.scale.set(0.5,0.5,0.5)
-  butterflyModel.rotation.set(Math.PI / 2, Math.PI, 0);
-
-  const animationClip = gltf.animations[0];
-  mixer = new THREE.AnimationMixer(butterflyModel);
-  const animationAction = mixer.clipAction(animationClip);
-  animationAction.play();
-}, undefined, function (err) { console.log(err) })
-
-assetLoader.load("./assets/bombus_dahlbomii/scene.gltf", function (gltf) {
-  insectModal1 = gltf.scene;
-  scene.add(insectModal1)
-  insectModal1.position.set(-6, 1, -15)
-  insectModal1.scale.set(0.05,0.05,0.05)
-  insectModal1.rotation.set(Math.PI / 2, 0, 0);
-
-  const animationClip = gltf.animations[0];
-  mixer1 = new THREE.AnimationMixer(insectModal1);
-  const animationAction = mixer1.clipAction(animationClip);
-  animationAction.play();
-}, undefined, function (err) { console.log(err) })
-
-
-assetLoader.load("./assets/pearly_heath/scene.gltf", function (gltf) {
-  insectModal2 = gltf.scene;
-  scene.add(insectModal2)
-  insectModal2.position.set(2, 0, 15)
-  insectModal2.scale.set(0.5,0.5,0.5)
-  const animationClip = gltf.animations[0];
-  mixer2 = new THREE.AnimationMixer(insectModal2);
-  const animationAction = mixer2.clipAction(animationClip);
-  animationAction.play();
-}, undefined, function (err) { console.log(err) })
-
-
-
-
-assetLoader.load("./assets/blanket_phlox/scene.gltf", function (gltf) {
-  flowersModel = gltf.scene;
-  scene.add(flowersModel)
-  flowersModel.position.set(0, -3, -10)
-  flowersModel.scale.set(40, 30, 30)
-}, undefined, function (err) { console.log(err) })
-
-
-let intensity=1
-camera.position.set(0, 0, 10)
-orbit.update()
-
-const ambientLight = new THREE.AmbientLight(0xFFFFFF,intensity)
 scene.add(ambientLight)
+scene.add(targetMesh)
+scene.add(directionalLight)
+scene.background=new THREE.Color(0x000000)
+
+const target = new YUKA.GameEntity()
+target.setRenderComponent(targetMesh, sync)
+entityManager.add(target)
+
+const seekBehavior = new YUKA.SeekBehavior(target.position)
+
+function sync(entity, renderComponent) {
+    renderComponent.matrix.copy(entity.worldMatrix);
+}
+    
+
+const cubeMeshGeometry = new THREE.BoxGeometry(15,15,15)
+const cubeMeshMaterial = new THREE.MeshPhysicalMaterial({...ballMaterial,color: '#AF2E28'})
+    const cubeMesh = new THREE.Mesh(cubeMeshGeometry, cubeMeshMaterial)
+    const vehicle = new YUKA.Vehicle()
+    cubeMesh.matrixAutoUpdate = false
+    vehicle.setRenderComponent(cubeMesh, sync)
+    entityManager.add(vehicle)
+    scene.add(cubeMesh)
+    vehicle.steering.add(seekBehavior)
+    vehicle.position.set(0,0,0)
+    
 
 
+    const torusMeshGeometry = new THREE.SphereGeometry(20,5,5)
+    const torusMeshMaterial = new THREE.MeshPhysicalMaterial({wireframe:true,color:'white',transparent:true,opacity:0.2})
+    const torusMesh = new THREE.Mesh(torusMeshGeometry, torusMeshMaterial)
+const torusVehicle1 = new YUKA.Vehicle()
+    torusMesh.matrixAutoUpdate = false
+    torusVehicle1.setRenderComponent(torusMesh, sync)
+    entityManager.add(torusVehicle1)
+    scene.add(torusMesh)
+    torusVehicle1.steering.add(seekBehavior)
+    torusVehicle1.position.set(0,0,0)
+
+    
+
+window.addEventListener('mousemove', (e) => {
+    pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+    const depth = 10;
+    pointer.z = depth;
+
+    target.position.set(pointer.x * 50, pointer.y * 50, pointer.z);
+    seekBehavior.target.copy(target.position);
+
+   
+})    
+
+function animate() {
+    const speed=5
+    const delta = time.update().getDelta()
+            vehicle.position.x = vehicle.velocity.x * speed * delta;
+            vehicle.position.y = vehicle.velocity.y * speed * delta;
+    vehicle.position.z = vehicle.velocity.z * speed * delta;
+    
+    torusVehicle1.position.x = torusVehicle1.velocity.x * speed * delta;
+    torusVehicle1.position.y = torusVehicle1.velocity.y * speed * delta;
+    torusVehicle1.position.z = torusVehicle1.velocity.z * speed * delta;
+    entityManager.update(delta)
+
+
+    requestAnimationFrame(animate);
+    renderer.render(scene,camera)
+}
+
+
+animate()
+orbit.update()
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 renderer.render(scene, camera)
-function onResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+
+window.addEventListener('resize', ()=>{
+    camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  bloomComposer.setSize(window.innerWidth,window.innerHeight)
-}
+    renderer.setSize(window.innerWidth,window.innerHeight)
+})
 
-function animate() {
-  if (mixer) {
-    mixer.update(0.02);
-  }
-  if (mixer1) {
-    mixer1.update(0.04);
-  }
-  if (mixer2) {
-    mixer2.update(0.03);
-  }
-  if (butterflyModel) {
-    butterflyModel.position.y=Math.sin(moveSpeed) * moveAmplitude;
-    moveSpeed += 0.005;
-    
-  }
-  if (insectModal2) {
-    insectModal2.position.x = Math.sin(moveSpeed2) * 2;
-    insectModal2.position.z= Math.sin(moveSpeed2)*2
-    moveSpeed2 += 0.005;
-    
-  }
-  
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera)
-  bloomComposer.render(camera,scene)
-}
-window.addEventListener('resize', onResize)
-window.addEventListener('wheel', (event) => {
-  if (event.deltaY < 0) {
-    intensity += 0.01; 
-  } else {
-    intensity -= 0.01; 
-  }
-  intensity = Math.max(0, Math.min(1, intensity));
-  ambientLight.intensity = intensity;
+let opacity =0;
+document.addEventListener('wheel', (event) => {
+    const projects = document.getElementById('projects');
+  const skills=document.getElementById('skills')
+    if (event.deltaY < 0) {
+        if (ambientLight.intensity < 3) {
+            ambientLight.intensity += 1;
+        }
+        if (opacity > 0) {
+            opacity -= 0.25;
+            projects.style.opacity = opacity;
+            skills.style.opacity=opacity
+        }
+        console.log(opacity);
+    } else {
+        if (ambientLight.intensity >= -8) {
+            ambientLight.intensity -= 1;
+        }
+        if (opacity <= 1) {
+            opacity += 0.25;
+            projects.style.opacity = opacity;
+            skills.style.opacity=opacity
+
+        }
+    }
+
+   
+    renderer.render(scene, camera);
 });
-
-animate()

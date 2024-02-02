@@ -1,10 +1,15 @@
 *{
     margin: 0;
     padding: 0;
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 body{
    width: 100%;
    height: 100%;
+   background-color: #FCEB9B;
+   overflow: hidden;
+   /* cursor: none; */
 }
 #app{
     color:rgba(152, 255, 152, 0);
@@ -12,23 +17,225 @@ body{
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width:fit-content;
-    height: fit-content;
+    width:100vw;
+    height: 100vh;
     margin: 0;
-    padding: 0;
+    padding-top:200px;
     background: transparent;
     display: flex;
     flex-direction: column;
     align-items:center;
 }
-#menu{
+.about{
+    position: fixed;
+    left:0;
+    top:0;
+    color: white;
+    height: fit-content;
+    width: 100%;
+    padding:20px;
+}
+
+
+#description{
+    background-color: transparent;
+    color: white;
+    height: fit-content;
+    width: 40%;
+    padding:40px 10px 40px 40px;
+    position: absolute;
+    right: 10px;
+    text-wrap: wrap;
+}
+
+#projects {
+    background-color:transparent;
+    color: white;
+    transition: opacity 2s ease-in-out;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+}
+.glass-background {
+    width: 250px;
+    height: fit-content;
+    backdrop-filter: blur(10px);
+    background: rgba(175, 46, 40, 0.2);
+}
+.project-bar{
+   display: flex;
+   flex-direction: column;
+   background-color:transparent;
+   width: 250px;
+   padding: 10px;
+
+}
+
+#project{
+    width: 100px;
+    height: 100px;
+}
+.header{
+ display: flex;
+ justify-content: space-around;
+ font-family: 'Courier New', Courier, monospace;
+
+}
+.project-text{
+  text-wrap:wrap;
+}
+.links{
+    display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+.links>button{
+    width: 75px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid red;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    padding: 2px;
+}
+button:hover{
+    background-color: red;
+}
+#skills{
+    width:50%;
+    position: absolute;
+    right: 10px;
+    top:60%;
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content: flex-end;
+    transition: opacity 2s ease-in-out;
+    opacity: 0;
+}
+.skill{
+    width: 100px;
+    transition: transform 0.5s ease;
+    border: 1px solid white;
+    position: relative;
+    height: fit-content;
+}
+.skill>p{
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
-    width: 100vw;
-    height: 100vh;
-    border: 1px solid white;
-    background-color: pink;
-    opacity: 0;
+    transform: translate(-50%, -50%);
+    color: red;
+}
+.skill:hover{
+    transform: scale(1.2);
+}
+@media screen and (max-width: 600px) {
+    *{
+        margin: 0;
+        padding: 0;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    body{
+       width: 100%;
+       height: 100%;
+       background-color: #FCEB9B;
+       overflow: hidden;
+       /* cursor: none; */
+    }
+    #app{
+        color:rgba(152, 255, 152, 0);
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width:100vw;
+        height: 100vh;
+        margin: 0;
+        padding-top:200px;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .about{
+        position: fixed;
+        left:0;
+        top:0;
+        color: white;
+        height: fit-content;
+        width: 100%;
+        padding:20px;
+    }
+    
+    
+    #description{
+        border: 1px solid white;
+        background-color: transparent;
+        color: white;
+        height: fit-content;
+        width: fit-content;
+        padding:20px;
+    }
+    
+    #projects {
+        background-color:transparent;
+        color: white;
+        transition: left 3s ease, opacity 3s ease;
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        padding: 10px;
+    }
+    .glass-background {
+        width: 250px;
+        height: fit-content;
+        backdrop-filter: blur(10px);
+        background: rgba(175, 46, 40, 0.2);
+    }
+    .project-bar{
+       display: flex;
+       flex-direction: column;
+       background-color:transparent;
+       width: 250px;
+       padding: 10px;
+    
+    }
+    
+    #project{
+        width: 100px;
+        height: 100px;
+    }
+    .header{
+     display: flex;
+     justify-content: space-around;
+     font-family: 'Courier New', Courier, monospace;
+    
+    }
+    .project-text{
+      text-wrap:wrap;
+    }
+    .links{
+        display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    #skills{
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+    @media screen and (min-width: 600px) {
+        body {
+            font-size: 16px;
+        }
+    }
 }
