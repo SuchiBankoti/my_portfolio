@@ -123,8 +123,7 @@ document.addEventListener('wheel', (event) => {
     const description = document.getElementById('description')
     const scroll=document.getElementById('scroll')
     if (window.innerWidth < 800) {
-        ambientLight.intensity = -5
-        scroll.style.opacity=0
+        ambientLight.intensity = 1
     } else {
         
         if (event.deltaY < 0) {

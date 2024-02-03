@@ -234,6 +234,8 @@ button:hover{
     }
     .about{
         padding:10px;
+        margin-top: 20px;
+        
     }
     #description{
         padding:10px;
@@ -262,6 +264,7 @@ button:hover{
     }
 }
 @media screen and (max-width: 500px) {
+
     .glass-background {
         width: 200px;
     }
@@ -288,5 +291,8 @@ button:hover{
         align-items: center;
         padding: 10px 20px;
         justify-content: center;
+    }
+    .scroll-down-container{
+        opacity: 0;
     }
 }
