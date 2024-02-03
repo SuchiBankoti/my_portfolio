@@ -229,39 +229,3 @@ const skill6 = document.getElementById('skill6');
 skill6.appendChild(renderer6.domElement);
 
 animate6();
-
-
-// const scene7 = new THREE.Scene();
-// const camera7 = new THREE.PerspectiveCamera(45, 1/2, 1, 1000);
-// const renderer7 = new THREE.WebGLRenderer({ alpha: true });
-
-// const ambientLight7 = new THREE.AmbientLight(0xffffff, 5);
-// const directionalLight7 = new THREE.DirectionalLight(0xffffff, 5);
-// const boxGeometry7 = new THREE.BoxGeometry(5, 5,5);
-// const boxMaterial7 = new THREE.MeshPhysicalMaterial({
-//     color: 'white',
-//    ...properties
-// });
-// const cube7 = new THREE.Mesh(boxGeometry7, boxMaterial7);
-// scene7.add(cube7);
-// cube7.position.set(0, 0, 0);
-// camera7.position.set(0, 0, 10);
-// scene7.add(camera7);
-// scene7.add(ambientLight7);
-// scene7.add(directionalLight7);
-// directionalLight7.position.set(-10, 10, 10);
-
-
-// function animate7() {
-//     const t=clock.getElapsedTime()
-//     cube7.position.y =Math.sin(t)*2;
-//     renderer7.render(scene7, camera7);
-//     window.requestAnimationFrame(animate7);
-// }
-
-// renderer7.setSize(100, 200);
-// renderer7.render(scene7, camera7);
-// const skill7 = document.getElementById('skill7');
-// skill7.appendChild(renderer7.domElement);
-
-// animate7();
