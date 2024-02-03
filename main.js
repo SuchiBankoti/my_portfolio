@@ -119,29 +119,39 @@ window.addEventListener('resize', ()=>{
 let opacity =0;
 document.addEventListener('wheel', (event) => {
     const projects = document.getElementById('projects');
-  const skills=document.getElementById('skills')
-    if (event.deltaY < 0) {
-        if (ambientLight.intensity < 3) {
-            ambientLight.intensity += 1;
-        }
-        if (opacity > 0) {
-            opacity -= 0.25;
-            projects.style.opacity = opacity;
-            skills.style.opacity=opacity
-        }
-        console.log(opacity);
+    const skills = document.getElementById('skills')
+    const description = document.getElementById('description')
+    const scroll=document.getElementById('scroll')
+    if (window.innerWidth < 800) {
+        ambientLight.intensity = -5
+        scroll.style.opacity=0
     } else {
-        if (ambientLight.intensity >= -8) {
-            ambientLight.intensity -= 1;
-        }
-        if (opacity <= 1) {
-            opacity += 0.25;
-            projects.style.opacity = opacity;
-            skills.style.opacity=opacity
+        
+        if (event.deltaY < 0) {
+            if (ambientLight.intensity < 3) {
+                ambientLight.intensity += 1;
+            }
+            if (opacity > 0) {
+                opacity -= 0.35;
+                projects.style.opacity = opacity;
+                skills.style.opacity = opacity
+                description.style.opacity = opacity
+                scroll.style.opacity=1
+            }
+        } else {
+            if (ambientLight.intensity >= -8) {
+                ambientLight.intensity -= 3;
+            }
+            if (opacity <= 1) {
+                opacity += 0.35;
+                projects.style.opacity = opacity;
+                skills.style.opacity = opacity
+                description.style.opacity = opacity
+                scroll.style.opacity=0
 
+            }
         }
     }
-
    
     renderer.render(scene, camera);
 });

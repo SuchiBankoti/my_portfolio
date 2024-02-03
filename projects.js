@@ -53,7 +53,7 @@ const renderer3 = new THREE.WebGLRenderer({ alpha: true });
 const ambientLight3 = new THREE.AmbientLight(0xffffff, 5);
 const directionalLight3 = new THREE.DirectionalLight(0xffffff, 5);
 const sphereGeometry = new THREE.CylinderGeometry(2,2,2);
-const sphereMaterial = new THREE.MeshPhysicalMaterial({  ...properties,color: 'blue' });
+const sphereMaterial = new THREE.MeshPhysicalMaterial({  ...properties,color: 'skyblue' });
 const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
 scene3.add(sphereMesh);
 sphereMesh.position.set(0, 0, 0);

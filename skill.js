@@ -11,10 +11,10 @@ const camera1 = new THREE.PerspectiveCamera(45, 1/2, 1, 1000);
 const renderer1 = new THREE.WebGLRenderer({ alpha: true });
 
 const ambientLight1 = new THREE.AmbientLight(0xffffff, 5);
-const directionalLight1 = new THREE.DirectionalLight(0xffffff, 5);
+const directionalLight1 = new THREE.DirectionalLight('#AF2E28', 2);
 const boxGeometry1 = new THREE.BoxGeometry(5, 5,5);
 const boxMaterial1 = new THREE.MeshPhysicalMaterial({
-    color: 'white',
+    color: '#b9d9ff',
    ...properties
 });
 const cube1 = new THREE.Mesh(boxGeometry1, boxMaterial1);
@@ -51,7 +51,7 @@ const camera2 = new THREE.PerspectiveCamera(45, 1/2, 1, 1000);
 const renderer2 = new THREE.WebGLRenderer({ alpha: true });
 
 const ambientLight2 = new THREE.AmbientLight(0xffffff, 5);
-const directionalLight2 = new THREE.DirectionalLight(0xffffff, 5);
+const directionalLight2 = new THREE.DirectionalLight('#AF2E28', 2);
 const boxGeometry2 = new THREE.BoxGeometry(5, 5,5);
 const boxMaterial2 = new THREE.MeshPhysicalMaterial({
     color: 'white',
@@ -88,10 +88,10 @@ const camera3 = new THREE.PerspectiveCamera(45, 1/2, 1, 1000);
 const renderer3 = new THREE.WebGLRenderer({ alpha: true });
 
 const ambientLight3 = new THREE.AmbientLight(0xffffff, 5);
-const directionalLight3 = new THREE.DirectionalLight(0xffffff, 5);
+const directionalLight3 = new THREE.DirectionalLight('#AF2E28', 2);
 const boxGeometry3 = new THREE.BoxGeometry(5, 5,5);
 const boxMaterial3 = new THREE.MeshPhysicalMaterial({
-    color: 'white',
+    color: '#ffe699',
    ...properties
 });
 const cube3 = new THREE.Mesh(boxGeometry3, boxMaterial3);
@@ -126,10 +126,10 @@ const camera4 = new THREE.PerspectiveCamera(45, 1/2, 1, 1000);
 const renderer4 = new THREE.WebGLRenderer({ alpha: true });
 
 const ambientLight4 = new THREE.AmbientLight(0xffffff, 5);
-const directionalLight4 = new THREE.DirectionalLight(0xffffff, 5);
+const directionalLight4 = new THREE.DirectionalLight('#AF2E28', 2);
 const boxGeometry4 = new THREE.BoxGeometry(5, 5,5);
 const boxMaterial4 = new THREE.MeshPhysicalMaterial({
-    color: 'white',
+    color: '#b3f3a8',
    ...properties
 });
 const cube4 = new THREE.Mesh(boxGeometry4, boxMaterial4);
@@ -164,10 +164,10 @@ const camera5 = new THREE.PerspectiveCamera(45, 1/2, 1, 1000);
 const renderer5 = new THREE.WebGLRenderer({ alpha: true });
 
 const ambientLight5 = new THREE.AmbientLight(0xffffff, 5);
-const directionalLight5 = new THREE.DirectionalLight(0xffffff, 5);
+const directionalLight5 = new THREE.DirectionalLight('#AF2E28', 2);
 const boxGeometry5 = new THREE.BoxGeometry(5, 5,5);
 const boxMaterial5 = new THREE.MeshPhysicalMaterial({
-    color: 'white',
+    color: '#eac3ff',
    ...properties
 });
 const cube5 = new THREE.Mesh(boxGeometry5, boxMaterial5);
@@ -200,10 +200,10 @@ const camera6 = new THREE.PerspectiveCamera(45, 1/2, 1, 1000);
 const renderer6 = new THREE.WebGLRenderer({ alpha: true });
 
 const ambientLight6 = new THREE.AmbientLight(0xffffff, 5);
-const directionalLight6 = new THREE.DirectionalLight(0xffffff, 5);
+const directionalLight6 = new THREE.DirectionalLight('#AF2E28', 2);
 const boxGeometry6 = new THREE.BoxGeometry(5, 5,5);
 const boxMaterial6 = new THREE.MeshPhysicalMaterial({
-    color: 'white',
+    color: '#ffcc99',
    ...properties
 });
 const cube6 = new THREE.Mesh(boxGeometry6, boxMaterial6);
