@@ -14,7 +14,7 @@ const project_data = [
    
     },
     {
-        name: 'Ecommerce-App',
+        name: 'Ecomm-App',
         text:'Dynamic React app utilizing Context API, React Router,and Firebase for data-management. offers smooth user authentication for an engaging user experience.',
         code: 'https://github.com/SuchiBankoti/3hrreactproject',
         site:'https://suchibankoti.github.io/3hrreactproject/'
