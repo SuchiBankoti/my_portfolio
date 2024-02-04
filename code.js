@@ -42,8 +42,8 @@ project_data.forEach((p,i) => {
     const project_3d = document.createElement('div')
     const project_text = document.createElement('div')
     const links = document.createElement('div')
-    const code = document.createElement('button')
-    const site = document.createElement('button')
+    const code = document.createElement('a')
+    const site = document.createElement('a')
 
     glass_background.className = 'glass-background'
     project_bar.className = 'project-bar'
@@ -51,13 +51,20 @@ project_data.forEach((p,i) => {
     project_3d.id = `project${i + 1}`
     project_text.className = 'project-text'
     links.className = 'links'
-
+    code.className = 'btn'
+    site.className='btn'
 
     project_name.textContent = p.name
     project_text.textContent = p.text
-    code.innerHTML = `<a href=${p.code} target="_blank" title="code">code</a>`;
-    site.innerHTML = `<a href=${p.site} target="_blank" title="site">site</a>`;  
-        
+
+    code.href = p.code; 
+    code.target = '_blank'; 
+    code.title = 'code'; 
+    code.textContent='code'
+    site.href = p.code; 
+    site.target = '_blank'; 
+    site.title = 'code'; 
+    site.textContent='site'   
     header.appendChild(project_name)
     header.appendChild(project_3d)
     links.appendChild(code)

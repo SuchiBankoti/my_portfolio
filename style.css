@@ -165,20 +165,22 @@ body{
   height: 50px;
   width: 100%;
 }
-.links>button{
+.btn{
     width: 75px;
     background-color: transparent;
     color: white;
     border: 1px solid red;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
     padding: 2px;
+    font-size: 12px;
+    text-align: center;
 }
 a{
     text-decoration:none;
     color: aliceblue;
 
 }
-button:hover{
+.btn:hover{
     background-color: red;
 }
 #skills{
