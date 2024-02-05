@@ -61,9 +61,9 @@ project_data.forEach((p,i) => {
     code.target = '_blank'; 
     code.title = 'code'; 
     code.textContent='code'
-    site.href = p.code; 
+    site.href = p.site; 
     site.target = '_blank'; 
-    site.title = 'code'; 
+    site.title = 'site'; 
     site.textContent='site'   
     header.appendChild(project_name)
     header.appendChild(project_3d)
